@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+## Inconcrete Backscatter Networks for Structural Health Monitoring 
 
-You can use the [editor on GitHub](https://github.com/Anplus/In-concrete-Backscatter/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Given the increasing number of building collapse tragedies nowadays (e.g., Florida condo collapse), people gradually recognize that long-term and persistent structural health monitoring (SHM) becomes indispensable for civilian buildings. However, current SHM techniques suffer from high cost and deployment difficulty caused by the wired connection. Traditional wireless sensor networks fail to serve in-concrete communication for SHM because of the complexity of battery replacement and the concrete Faraday cage. In this work, we collaborate with experts from civil engineering to create a type of promising self-sensing concrete by introducing a novel functional filler, called EcoCapsule– a battery-free and miniature piezoelectric backscatter node. We overcome the fundamental challenges in in-concrete energy harvesting and wireless communication to achieve SHM via EcoCapsules. We prototype EcoCapsules and mix them with other raw materials (such as cement, sand, water, etc) to cast the self-sensing concrete, into which EcoCapsules are implanted permanently. We tested EcoCapsules regarding real-world buildings comprehensively. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Paper
 
-### Markdown
+cite
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    @inproceedings{zheng2020empowering,
+      title={Empowering Smart Buildings with Self-Sensing Concrete for Structural Health Monitoring},
+      author={Gong, Zheng, Han Lubing, An, Zhenlin and Yang, Lei and Ding, Siqi and Xiang, Yu},
+      booktitle={Proc. of ACM SIGCOMM},
+      year={2022}
+    }
 
-```markdown
-Syntax highlighted code block
+## Tutorial
 
-# Header 1
-## Header 2
-### Header 3
+Stay tuned.
 
-- Bulleted
-- List
+## CRediT authorship contribution statement
 
-1. Numbered
-2. List
+**Gong Zheng**: System Design, Software & Mechanical Implementation, Validation, original draft.
 
-**Bold** and _Italic_ and `Code` text
+[**Zhenlin An**](http://www4.comp.polyu.edu.hk/~cszan/): System Design, Software & Hardware Implementation, Writing - review & editing.
 
-[Link](url) and ![Image](src)
-```
+**Lei Yang**: Writing - review & editing, Supervision, Project administration, Funding acquisition.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+**Siqi Ding**: Investigation, Case Study
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Anplus/In-concrete-Backscatter/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**Yu Xiang**: Investigation, Experiment, Concrete Building
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+PI: [Dr. Lei Yang](https://www4.comp.polyu.edu.hk/~csyanglei/#/pages/profile/about)
