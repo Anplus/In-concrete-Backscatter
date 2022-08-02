@@ -29,6 +29,8 @@ Stay tuned.
 
 **Yu Xiang**: Investigation, Experiment, Concrete Building
 
+**Jingyu Tong, Donghui Dai**: Hardware Implementation
+
 ### Support or Contact
 
 PI: [Dr. Lei Yang](https://www4.comp.polyu.edu.hk/~csyanglei/#/pages/profile/about)
