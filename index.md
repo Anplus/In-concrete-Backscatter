@@ -21,20 +21,6 @@ cite
 
 Stay tuned.
 
-## CRediT authorship contribution statement
-
-**Gong Zheng**: System Design, Software & Mechanical Implementation, Validation, original draft.
-
-[**Zhenlin An**](http://www4.comp.polyu.edu.hk/~cszan/): System Design, Software & Hardware Implementation, Writing - review & editing.
-
-**Lei Yang**: Writing - review & editing, Supervision, Project administration, Funding acquisition.
-
-**Siqi Ding**: Investigation, Case Study
-
-**Yu Xiang**: Investigation, Experiment, Concrete Building
-
-**Jingyu Tong, Donghui Dai**: Hardware Implementation
-
 ### Support or Contact
 
 PI: [Dr. Lei Yang](https://www4.comp.polyu.edu.hk/~csyanglei/#/pages/profile/about)
