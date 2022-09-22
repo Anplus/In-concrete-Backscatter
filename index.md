@@ -4,7 +4,7 @@ Given the increasing number of building collapse tragedies nowadays (e.g., Flori
 
 ## Paper
 
-cite
+Our SIGCOMM Paper.
 
     @inproceedings{zheng2020empowering,
       title={Empowering Smart Buildings with Self-Sensing Concrete for Structural Health Monitoring},
@@ -12,7 +12,9 @@ cite
       booktitle={Proc. of ACM SIGCOMM},
       year={2022}
     }
-    
+
+Our MobiCom Demo Paper.
+
     @inproceedings{zheng2020constructing,
       title={Constructing Smart Buildings with In-concrete Backscatter Networks},
       author={Gong, Zheng, An, Zhenlin, Jingyu Tong, Donghui Dai and Yang, Lei},
