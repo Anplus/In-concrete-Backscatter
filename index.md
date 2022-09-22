@@ -13,6 +13,13 @@ cite
       year={2022}
     }
     
+    @inproceedings{zheng2020constructing,
+      title={Constructing Smart Buildings with In-concrete Backscatter Networks},
+      author={Gong, Zheng, An, Zhenlin, Jingyu Tong, Donghui Dai and Yang, Lei},
+      booktitle={Proc. of ACM MobiCom},
+      year={2022}
+    }
+    
 ## Demo
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gLRCQy2Q134" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
