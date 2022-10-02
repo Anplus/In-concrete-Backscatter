@@ -1,0 +1,19 @@
+* C:\Users\tagsys\Documents\GitHub\In-concrete-Backscatter\PCB\SIMU\LTC3588-transformer.asc
+XU1 N002 input N005 N003 N004 out vs 0 0 N006 0 LTC3588-1
+L1 N004 out 22µ Ipk=0.75 Rser=0.19
+C2 out 0 100µ V=6.3V
+Rload out 0 500K
+V1 in1 N001 SINE(0 0.5 230000) Rser=100 Cpar=530p
+C3 N003 N005 1µ
+C1 N003 0 10µ
+C4 vs 0 4.7µ
+L2 N001 in1 7.5µ
+L3 input N002 750µ
+.tran 10 startup
+* Notes:\n  If the simulation model is not found please update with the "Sync Release" command from the "Tools" menu.\n  It remains the customer's responsibility to verify proper and reliable operation in the actual application.\n  Component substitution and printed circuit board layout may significantly affect circuit performance or reliability.\n  Contact your local sales representative for assistance. This circuit is distributed to customers only for use with LTC parts.\n  Copyright © 2010 Linear Technology Inc. All rights reserved.
+* LTC3588-1,  Piezoelectric Energy Harvesting Power Supply with Simulated Remote Sensor/Transmitter\nInput: 24V 41Hz  Rs=119K     Output: 3.3V with 30mA 10msec Pulse Load
+* Piezoelectric Device\nMIDE V22BL\n1.4 Gpk Force at 41Hz\nwith Tip Mass of 1 gm.
+K L2 L3 1
+.lib LTC3588-1.sub
+.backanno
+.end

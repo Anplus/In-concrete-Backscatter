@@ -1,0 +1,146 @@
+; Installation INF for the Smacq USB Series DAQ Driver for Windows 2000(x86),XP,Vista,7
+; Processor support for x86,x64 based platforms. 
+;
+; (c) Copyright 2014 Smacq Technologies Co., Ltd.
+;
+
+[Version]
+Signature="$Windows NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+provider=%Provider%
+CatalogFile=gusb.cat
+DriverVer=01/19/2011,3.04.0005.000
+
+[SourceDisksNames]
+1=%Install%,,,
+
+[SourceDisksFiles]
+gusb.sys = 1
+
+[ClassInstall32]
+AddReg=Class_AddReg
+
+[ClassInstall32.NT]
+AddReg=Class_AddReg
+
+[ClassInstall32.NTx86]
+AddReg=Class_AddReg
+
+[ClassInstall32.NTamd64]
+AddReg=Class_AddReg
+
+[Class_AddReg]
+HKR,,,,%DeviceClassName%
+HKR,,Icon,,"-1"
+
+[DestinationDirs]
+CYUSB.Files.Ext = 10,System32\Drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%Provider%=Device,NT,NTx86,NTamd64
+
+;for all platforms
+[Device]
+%VID_04B4&PID_1004.DeviceDesc%=CyUsb, USB\VID_04B4&PID_1004
+%VID_04B4&PID_0030.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0030
+%VID_04B4&PID_0050.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0050
+
+;for windows 2000 non intel platforms
+[Device.NT]
+%VID_04B4&PID_1004.DeviceDesc%=CyUsb, USB\VID_04B4&PID_1004
+%VID_04B4&PID_0030.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0030
+%VID_04B4&PID_0050.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0050
+
+;for x86 platforms
+[Device.NTx86]
+%VID_04B4&PID_1004.DeviceDesc%=CyUsb, USB\VID_04B4&PID_1004
+%VID_04B4&PID_0030.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0030
+%VID_04B4&PID_0050.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0050
+
+;for x64 platforms
+[Device.NTamd64]
+%VID_04B4&PID_1004.DeviceDesc%=CyUsb, USB\VID_04B4&PID_1004
+%VID_04B4&PID_0030.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0030
+%VID_04B4&PID_0050.DeviceDesc%=CyUsb, USB\VID_04B4&PID_0050
+
+[CYUSB]
+CopyFiles=CYUSB.Files.Ext
+AddReg=CyUsb.AddReg
+
+[CYUSB.HW]
+AddReg=CYUSB.AddReg.Guid
+
+[CYUSB.Services]
+Addservice = CYUSB,2,CYUSB.AddService
+
+[CYUSB.NT]
+CopyFiles=CYUSB.Files.Ext
+AddReg=CyUsb.AddReg
+
+[CYUSB.NT.HW]
+AddReg=CYUSB.AddReg.Guid
+
+[CYUSB.NT.Services]
+Addservice = CYUSB,2,CYUSB.AddService
+
+[CYUSB.NTx86]
+CopyFiles=CYUSB.Files.Ext
+AddReg=CyUsb.AddReg
+
+[CYUSB.NTx86.HW]
+AddReg=CYUSB.AddReg.Guid
+
+[CYUSB.NTx86.Services]
+Addservice = CYUSB,2,CYUSB.AddService
+
+[CYUSB.NTamd64]
+CopyFiles=CYUSB.Files.Ext
+AddReg=CyUsb.AddReg
+
+[CYUSB.NTamd64.HW]
+AddReg=CYUSB.AddReg.Guid
+
+[CYUSB.NTamd64.Services]
+Addservice = CYUSB,2,CYUSB.AddService
+
+[CYUSB.AddReg]
+; Deprecating - do not use in new apps to identify a CYUSB driver
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,gusb.sys
+; You may optionally include a check for DriverBase in your application to check for a CYUSB driver
+HKR,,DriverBase,,gusb.sys
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+HKR,,FriendlyName,,%Description%
+
+[CYUSB.AddService]
+DisplayName    = %Description%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\gusb.sys
+AddReg         = CYUSB.AddReg
+LoadOrderGroup = Base
+
+[CYUSB.Files.Ext]
+gusb.sys
+
+[CYUSB.AddReg.Guid]
+HKR,,DriverGUID,,%CYUSB.GUID%
+
+[Strings]
+Provider        = "Smacq"
+Company         = "Smacq Technologies Co., Ltd."
+Description     = "Smacq USB Series DAQ Driver"
+DeviceClassName = "Smacq Devices"
+DisplayName     = "Smacq USB Devices"
+Install         = "Smacq USB Series DAQ Driver Installation Disk"
+VID_04B4&PID_1004.DeviceDesc = "Smacq USB Series DAQ"
+VID_04B4&PID_0030.DeviceDesc = "Smacq USB-3000 Series DAQ"
+VID_04B4&PID_0050.DeviceDesc = "Smacq USB-5000 Series DAQ"
+CYUSB.GUID="{D13E24B5-0A1D-459D-A63D-6FD823C91F83}"
+CYUSB_Unused = "."
