@@ -1,10 +1,10 @@
-loadlibrary('E:\OneDrive - The Hong Kong Polytechnic University\Desktop\Smacq\USB-3000_Matlab\USB-3000_Matlab\x64\USB3000.dll','E:\OneDrive - The Hong Kong Polytechnic University\Desktop\Smacq\USB-3000_Matlab\USB-3000_Matlab\USB3000.h')
+loadlibrary('.\x64\USB3000.dll','.\USB3000.h')
 libfunctions USB3000 -full
 
 clear all;
 
 sample_rate=1e6;
-sample_time=1e9/sample_rate;  
+sample_time=1e9/sample_rate;
 data_duration=1;
 points=data_duration*sample_rate*0.1;
 range=10.24;
@@ -12,7 +12,7 @@ range=10.24;
 Data = zeros(1,16*points);
 DataPtr = libpointer('singlePtr',Data);
 calllib('USB3000','USB3OpenDevice',0)                      %打开采集卡，参数不用改。
-calllib('USB3000','USB3ReadDevcieSN',0) 
+calllib('USB3000','USB3ReadDevcieSN',0)
 calllib('USB3000','USB3ReadDevcieModel',0)
 for i=1:8
     calllib('USB3000','SetUSB3AiChanSel',0,i - 1 ,0)        % 默认开启8通道，先关闭8通道
@@ -20,11 +20,11 @@ for i=1:8
 end
 for i= 1:1
     calllib('USB3000','SetUSB3AiChanSel',0,i - 1 ,1)           %开启相应通道  这里开启通道0
-    calllib('USB3000','SetUSB3AiRange',0,i - 1 ,range) 
-end 
+    calllib('USB3000','SetUSB3AiRange',0,i - 1 ,range)
+end
 calllib('USB3000','SetUSB3AiSampleMode',0,0)                   %设置采集模式 设置为连续采集
 calllib('USB3000','SetUSB3AiConnectType',0,1)                  %设置连接方式 这里为NRSE
-calllib('USB3000','SetUSB3AiSampleRate',0,sample_time)              %采样率这只为100000ns  换算采样率为10k       
+calllib('USB3000','SetUSB3AiSampleRate',0,sample_time)              %采样率这只为100000ns  换算采样率为10k
 calllib('USB3000','SetUSB3AiTrigSource',0,0)                   %设置触发方式 这里设置为软件触发 执行软件触发函数即可触发采集
 calllib('USB3000','SetUSB3AiConvSource',0,0)                   %设置触发源 这里设置为AI内部触发源
 
@@ -33,16 +33,16 @@ calllib('USB3000','SetUSB3AiConvSource',0,0)                   %设置触发源 
 
 while(1)
 
-calllib('USB3000','SetUSB3ClrAiFifo',0)                        %清空缓冲区 
+calllib('USB3000','SetUSB3ClrAiFifo',0)                        %清空缓冲区
 calllib('USB3000','SetUSB3AiSoftTrig',0)                       %执行软件触发函数 触发采集
 
 calllib('USB3000','USB3GetAi',0,points,DataPtr,4000)            %从缓冲区获取点数  设置为执行一次获取10000点 建议是单通道 采样率的十分之一的点数
                                                                %将获取的点数给到指针DATAPTR中超时时间时间设置为4000ms
 Data = get(DataPtr,'Value');                                   %连续采集就是连续不断执行USB3getAi函数 数据就是指针内的数据，0到9999是第一个开启的通道
 pause(data_duration)                                                       %若是多通道采集，数据就是第一个10000是开启的第一个通道的。第二个10000数据是第二个开启的通道的
-myData = zeros(1,points);                                   
-myData = Data(1:points);                           
- 
+myData = zeros(1,points);
+myData = Data(1:points);
+
 
 
 %Decoding--------------------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ y=y(startpoint:end);
 
 diffy=diff(y);
 
-% plot(diffy) 
+% plot(diffy)
 
 edge_height=2e-4;
 skip=60;
@@ -100,20 +100,20 @@ while (1)
          for j=startpoint:endpoint+1
             if x(j+1)-x(j)~=0
                 decode_result=[decode_result,0];
-%         
+%
                 break
             end
-            
+
             if j==endpoint+1
                 decode_result=[decode_result,1];
 %                 currentbit=1;
                 break
             end
          end
-        
+
          i=i+220;
     end
-    
+
     if i >(length(x)-220)
         disp(num2str(decode_result))
         break
@@ -121,9 +121,9 @@ while (1)
 
 end
 
-end                                                    
-calllib('USB3000','SetUSB3ClrAiTrigger',0)                     
-calllib('USB3000','SetUSB3ClrAiFifo',0)                  
-calllib('USB3000','USB3CloseDevice',0)                                      
+end
+calllib('USB3000','SetUSB3ClrAiTrigger',0)
+calllib('USB3000','SetUSB3ClrAiFifo',0)
+calllib('USB3000','USB3CloseDevice',0)
 clear all;
 unloadlibrary('USB3000')
